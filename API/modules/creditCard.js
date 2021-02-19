@@ -6,25 +6,21 @@ const creditSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    account_number:{ 
+    number:{ 
         type: Number,
         required:true
     },
     cvc:{
         type: Number,
-        required:true,
+        required:true
     },
-    month_exp_date:{
+    expiry:{
         type: Number,
-        required: true
-    },
-    day_exp_date:{ 
-        type:Number,
         required:true
     },
     card_type:{
         type: String,
-        required:true
+        
     },
     debit:{
         type: Boolean,
