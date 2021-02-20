@@ -17,16 +17,17 @@ Router.post('/createcard', async (req,res,next)=>{
         res.status(400).send(err)
     }
 })
+//works no need to add auth middleWare jusing jsonwebtoken for reall project 
+//right now all the cards that is added will be displaed need to follow back to add token handleing for spicific user card holder IMPORTANT FOR MAIN PROJECT
 
 Router.get('/cards', async (req,res)=>{
-    const allCard = req.body
     try{
-        const getCard = Card.findAll({allCard})
-        res.status(200).send(getCard)
+        const cards = await Card.find()
+        res.status(200).send(cards)
     }catch(e){
         res.status(400).send(e)
     }
+
 })
 module.exports = Router;
 
-//first need to add a post method theat creates a credit card
