@@ -29,5 +29,24 @@ Router.get('/cards', async (req,res)=>{
     }
 
 })
+// Router.delete('/card/:id', async (req,res)=>{
+//     try{
+//         const card = await Card.findByIdAndRemove(req.param.id)
+//         res.status(200).send(card)
+//     }catch(e){
+//         res.status(400).send(err)
+//     }
+// })
+Router.delete('/card/:id', async (req, res)=>{
+    if(!card){
+        res.status(400).send('there is no card')
+    }else{
+    Card.findByIdAndRemove({_id:req.params.id}).then(function(card){
+        res.status(200).send(card)
+    })
+}
+
+
+})
 module.exports = Router;
 
